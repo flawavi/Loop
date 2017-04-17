@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+    h1.
+        Party ID #{party._id}
+    form(action='/parties/#{party._id}/edit',method='post',name='updateparty',enctype='application/x-www-form-urlencoded')
+        p Name: 
+            input#inputName(type='text', value='#{party.name}', name='name')
+        p Date: 
+            input#inputDate(type='date', value='#{partyDate}', name='date')
+        p Is Invite Only?: 
+            input#inputIsInviteOnly(type='checkbox', name='isIniviteOnly', checked=('#{party.isInviteOnly}'==='true' ? "checked" : undefined))
+        p 
+            input(type='hidden',value='PUT',name='_method')
+        p 
+            button#btnSubmit(type='submit').
+                Update

@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+    h1.
+        #{title}
+    form#formAddparty(name="addparty",method="post",action="/parties")
+        p Name: 
+            input#inputName(type="text", placeholder="ex. Jerome Strikesagain", name="name")
+        p Date: 
+            input#inputDate(type="date", name="date")
+        p Is Invite Only?: 
+            input#inputIsInviteOnly(type="checkbox", name="isIniviteOnly")
+        p
+            button#btnSubmit(type="submit") submit

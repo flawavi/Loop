@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+    h1.
+         #{title}
+    ul
+        - each party, p in parties
+            li
+                = party.name
+                = party.date
+                = party.isInviteOnly
+                = party._id
+                form(action='/parties/#{party._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+                    input(type='hidden',value='DELETE',name='_method')
+                    button(type='submit').
+                        Delete
+                p 
+                    a(href='/parties/#{party._id}/edit') Edit
+                p
+                    a(href='/parties/#{party._id}') Show
