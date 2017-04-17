@@ -148,6 +148,7 @@ router.route('/:id/edit')
 	            //Return the party
 	            console.log('GET Retrieving ID: ' + party._id);
               var partyDate = party.date.toISOString();
+              //what's going on here
               partyDate = partyDate.substring(0, partyDate.indexOf('T'))
 	            res.format({
 	                //HTML response will render the 'edit.jade' template
