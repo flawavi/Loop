@@ -1,0 +1,18 @@
+extends ../layout
+
+block title
+  title= `Edit User ${user._id}`
+
+block content
+    h1.
+        User ID #{user._id}
+    form(action='/users/#{user._id}/edit?_method=PUT',method='post',name='updateUser',enctype='application/x-www-form-urlencoded')
+        p Name: 
+            input#inputName(type='text', value=user.name, name='name')
+        p Age: 
+            input#inputAge(type='number', value=user.age, name='age')
+        p Email:
+            input#inputEmail(type='text', name='email', value=user.email)
+        p 
+            button#btnSubmit(type='submit').
+                Update
